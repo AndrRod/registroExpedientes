@@ -18,7 +18,7 @@ public class UserMapper {
     private PasswordEncoder passwordEncoder;
     public List<Object> listUsersToListDtoPart(List<User> userList){return userList.stream().map(u-> userEntityToPartDto(u)).collect(Collectors.toList());}
     public User dtoUserPartCreateToEntity(UserPartDto user){return new User(null, user.getFirstName(), user.getLastName(), user.getEmail(), passwordEncoder.encode(user.getPassword()), LocalDate.now(), false);};
-    public UserPartDto userEntityToPartDto(User user){return new UserPartDto(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword());}
+    public UserPartDto userEntityToPartDto(User user){return new UserPartDto(user.getId(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword());}
     public UserPageDto userEntittyToPageDto(User user){return new UserPageDto(user.getId(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getCreationDate());}
     public List<Object> listUserEntityToPageDto(List<User> usersList){return usersList.stream().map(u -> userEntittyToPageDto(u)).collect(Collectors.toList());}
     public User updateUserFromDto(User user, UserPartDto userPartDto){

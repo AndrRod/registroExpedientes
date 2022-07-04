@@ -4,6 +4,7 @@ import com.tc.registro.art1.dto.UserPartDto;
 import com.tc.registro.art1.dto.UserTokenResponseDto;
 import com.tc.registro.art1.dto.mapper.UserMapper;
 import com.tc.registro.art1.exception.MessageGeneral;
+import com.tc.registro.art1.exception.MessagePag;
 import com.tc.registro.art1.service.UserAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,5 +53,10 @@ public class UserAuthController {
     @ResponseStatus(HttpStatus.OK)
     public String delteUserById(Long id, HttpServletRequest request){
         return userAuthService.deleteUser(id, request);
+    }
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserPartDto findById (@PathVariable Long id){
+        return userAuthService.getUserDto(id);
     }
 }
