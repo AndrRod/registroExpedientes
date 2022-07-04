@@ -11,6 +11,8 @@ public interface FileService {
     FilesDto findFileDtoById(Long id);
     Files findFileById(Long id);
     void deleteFileById(Long id);
-    MessagePag paginationFiles(int page);
+    MessagePag paginationFiles(Integer page, String pathPage);
+    MessagePag paginationFilesFindByDescription(Integer page, String description, String pathPage);
     FilesDto updateFileById(Long id, FilesDto filesDto);
+
 }

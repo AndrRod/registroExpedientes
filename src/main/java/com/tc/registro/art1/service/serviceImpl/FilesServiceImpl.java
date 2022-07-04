@@ -9,12 +9,12 @@ import com.tc.registro.art1.model.Files;
 import com.tc.registro.art1.repository.FileRepository;
 import com.tc.registro.art1.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.awt.print.Pageable;
 import java.io.File;
 
 @Service
@@ -48,9 +48,16 @@ public class FilesServiceImpl implements FileService {
     }
 
     @Override
-    public MessagePag paginationFiles(int page) {
+    public MessagePag paginationFilesFindByDescription(Integer page, String description, String pathPage) {
+        Page<Files> files = fileRepository.findByDescriptionFile(description, PageRequest.of(page, SIZE_MAX));
+        return paginationMessage.messageInfo(files, filesMapper.listEntityToListDto(files.getContent()), pathPage);
+    }
+
+
+    @Override
+    public MessagePag paginationFiles(Integer page, String pathPage) {
         Page<Files> files = fileRepository.findAll(PageRequest.of(page, SIZE_MAX));
-        return paginationMessage.messageInfo(files, filesMapper.listEntityToListDto(files.getContent()));
+        return paginationMessage.messageInfo(files, filesMapper.listEntityToListDto(files.getContent()), pathPage);
     }
 
     @Override

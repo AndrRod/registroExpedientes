@@ -1,11 +1,17 @@
 package com.tc.registro.art1.controller;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.tc.registro.art1.dto.FilesDto;
 import com.tc.registro.art1.exception.MessagePag;
 import com.tc.registro.art1.service.FileService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
 
 
 @CrossOrigin(origins = {"http://127.0.0.1:3000"}
@@ -34,8 +40,12 @@ public class FilesController {
     }
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
-    public MessagePag listFilesPagination(@RequestParam int page){
-        return fileService.paginationFiles(page);
+    public MessagePag listFilesPagination(@RequestParam(required = false) Integer page,
+                                          @RequestParam(required = false) Integer descr,
+                                          @RequestBody(required = false) Field field,
+                                          String pathPage){
+        if(page !=null) {return fileService.paginationFiles(page, "?page=");}
+        return fileService.paginationFilesFindByDescription(descr, field.getDescription(), "?descr=");
     }
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
@@ -43,4 +53,9 @@ public class FilesController {
         return fileService.findFileDtoById(id);
     }
 
+}
+@Data
+class Field {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    private String description;
 }

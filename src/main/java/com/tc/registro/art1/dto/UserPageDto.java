@@ -14,7 +14,7 @@ public class UserPageDto {
         private String firstName;
         private String lastName;
         private String email;
-        @JsonFormat(pattern = "dd-MM-yyyy")
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
         private LocalDate creationDate;
 
 }
