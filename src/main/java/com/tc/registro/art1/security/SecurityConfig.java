@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.cors();
         http.authorizeRequests().antMatchers("/auth/login", "/auth/register", "/auth/refresh").permitAll();
-        http.authorizeRequests().anyRequest().permitAll();
+        http.authorizeRequests().anyRequest().authenticated();
         http.logout()
                 .logoutUrl("/auth/logout")
                 .invalidateHttpSession(true)
@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .clearAuthentication(true)
                 .logoutSuccessUrl("/auth/logoutsuccess").permitAll();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
-//        http.addFilterBefore(new ConfigAutorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(new ConfigAutorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
     @Bean
     @Override

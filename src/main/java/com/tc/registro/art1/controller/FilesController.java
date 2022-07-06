@@ -8,6 +8,7 @@ import com.tc.registro.art1.exception.MessagePag;
 import com.tc.registro.art1.service.FileService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,8 +45,8 @@ public class FilesController {
                                           @RequestParam(required = false) Integer descr,
                                           @RequestBody(required = false) Field field,
                                           String pathPage){
-        if(page !=null) {return fileService.paginationFiles(page, "?page=");}
-        return fileService.paginationFilesFindByDescription(descr, field.getDescription(), "?descr=");
+        if(page !=null) {return fileService.paginationFiles(page, "/file?page=");}
+        return fileService.paginationFilesFindByDescription(descr, field.getDescription(), "/file?descr=");
     }
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
@@ -56,6 +57,5 @@ public class FilesController {
 }
 @Data
 class Field {
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private String description;
 }
