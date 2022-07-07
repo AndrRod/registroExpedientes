@@ -122,7 +122,7 @@ public class UserServiceImpl implements UserAuthService, UserDetailsService {
             User user = findUserByEmail(email);
             String acceso_token = JWT.create()
                     .withSubject(user.getEmail())
-                    .withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000)) // 10 minutos
+                    .withExpiresAt(new Date(System.currentTimeMillis() + 30 * 60 * 1000)) // 30 minutos
                     .withIssuer(request.getRequestURL().toString())
                     .withClaim("role", Collections.singletonList("none"))
                     .sign(algorithm);

@@ -24,7 +24,7 @@ public class FilesController {
     @Autowired
     private FileService fileService;
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping
+    @PostMapping("/create")
     public FilesDto createEntity(@RequestBody FilesDto filesDto){
         return fileService.createFile(filesDto);
     }
@@ -40,7 +40,7 @@ public class FilesController {
         return "the file was deleted";
     }
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping
+    @PostMapping
     public MessagePag listFilesPagination(@RequestParam(required = false) Integer page,
                                           @RequestParam(required = false) Integer descr,
                                           @RequestBody(required = false) Field field,

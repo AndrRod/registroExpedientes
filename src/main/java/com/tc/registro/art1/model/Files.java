@@ -7,10 +7,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @AllArgsConstructor @NoArgsConstructor
@@ -18,7 +16,10 @@ import java.time.LocalDate;
 public class Files {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotNull(message = "can't be empty or null")
+    @Column(unique = true)
     private String numberFile;
+    @NotNull(message = "can't be empty or null")
     private String title;
 //    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate expirationDate;
