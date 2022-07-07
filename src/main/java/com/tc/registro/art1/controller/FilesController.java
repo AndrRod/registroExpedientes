@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 
-@CrossOrigin(origins = {"http://127.0.0.1:3000", "https://regist-exp.netlify.app"}
+@CrossOrigin(origins = {"https://regist-exp.netlify.app"}
         , methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}
         ,allowCredentials = "true")
 @RestController
