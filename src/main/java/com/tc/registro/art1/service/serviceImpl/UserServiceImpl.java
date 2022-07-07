@@ -97,7 +97,7 @@ public class UserServiceImpl implements UserAuthService, UserDetailsService {
 
         String access_token = JWT.create()
                 .withSubject(userAut.getUsername())
-                .withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000)) // 10 minutos
+                .withExpiresAt(new Date(System.currentTimeMillis() + 180 * 60 * 1000)) // 2 horas
                 .withIssuer(request.getRequestURL().toString())
                 .withClaim("role",userAut.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
                 .sign(algorithm);
