@@ -1,21 +1,15 @@
 package com.tc.registro.art1.controller;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.tc.registro.art1.dto.FilesDto;
 import com.tc.registro.art1.exception.MessagePag;
 import com.tc.registro.art1.service.FileService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 
-
-@CrossOrigin(origins = {"http://127.0.0.1:3000"}
+@CrossOrigin(origins = {"http://127.0.0.1:3000", "https://regist-exp.netlify.app"}
         , methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}
         ,allowCredentials = "true")
 @RestController
