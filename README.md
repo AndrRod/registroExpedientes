@@ -18,8 +18,11 @@ Proyecto API REST - El objeto es crear el backed para una página web basica des
 # Dirección URL del frontend en producción
 https://regist-exp.netlify.app/
 
-# # Dirección URL del backend en producción
+# Dirección URL del backend en producción
 https://registro-exp.herokuapp.com
+
+### VIDEO DEMOSTRATIVO.
+https://youtu.be/S8m4_HPJg4k
 
 ### FRONTEND VISTA PREVIA.
 ![img.png](img.png)
