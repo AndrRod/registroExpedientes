@@ -59,7 +59,7 @@ public class ConfigAutorizationFilter extends OncePerRequestFilter {
             }else {
                 response.setStatus(UNAUTHORIZED.value());
                 response.setContentType(APPLICATION_JSON_VALUE);
-                new ObjectMapper().writeValue(response.getOutputStream(), new MessageGeneral("The resource cannot be accessed, because you arn't logged in or you don't hase use the token.", request.getRequestURI()));
+                new ObjectMapper().writeValue(response.getOutputStream(), new MessageGeneral("Error de validacion o ha vencido la sesión. Vuelva a ingresar usuario y contraseña!!!", request.getRequestURI()));
             }
         }
     }

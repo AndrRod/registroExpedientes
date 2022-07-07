@@ -21,5 +21,5 @@ https://regist-exp.netlify.app/
 # # Dirección URL del backend en producción
 https://registro-exp.herokuapp.com
 
-### FONT END VISTA PREVIA.
+### FRONTEND VISTA PREVIA.
 ![img.png](img.png)
