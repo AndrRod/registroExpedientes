@@ -18,4 +18,5 @@ public class FilesDto {
 //    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @CreationTimestamp
     private LocalDate creationDate;
+    private String state;
 }
