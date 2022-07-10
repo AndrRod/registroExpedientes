@@ -20,7 +20,7 @@ public class Files {
     @Column(unique = true)
     private String numberFile;
     @Lob
-    @Column
+    @Column(length = 1000)
     @NotNull(message = "can't be empty or null")
     private String title;
 //    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")

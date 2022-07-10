@@ -15,7 +15,7 @@ public class FilesDto {
     private Long id;
     private String numberFile;
     @Lob
-    @Column
+    @Column(length = 1000)
     private String title;
 //    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate expirationDate;
