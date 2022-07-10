@@ -13,9 +13,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
-import java.awt.print.Pageable;
-import java.io.File;
 
 @Service
 public class FilesServiceImpl implements FileService {

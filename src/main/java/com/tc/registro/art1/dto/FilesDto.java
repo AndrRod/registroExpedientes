@@ -6,12 +6,16 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
+import javax.persistence.Column;
+import javax.persistence.Lob;
 import java.time.LocalDate;
 
 @Getter @Setter @AllArgsConstructor
 public class FilesDto {
     private Long id;
     private String numberFile;
+    @Lob
+    @Column
     private String title;
 //    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate expirationDate;

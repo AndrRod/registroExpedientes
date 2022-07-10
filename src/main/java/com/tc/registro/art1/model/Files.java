@@ -19,6 +19,8 @@ public class Files {
     @NotNull(message = "can't be empty or null")
     @Column(unique = true)
     private String numberFile;
+    @Lob
+    @Column
     @NotNull(message = "can't be empty or null")
     private String title;
 //    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
