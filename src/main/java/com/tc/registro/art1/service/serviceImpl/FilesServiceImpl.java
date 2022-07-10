@@ -19,7 +19,7 @@ import java.io.File;
 
 @Service
 public class FilesServiceImpl implements FileService {
-    private static final int SIZE_MAX = 20;
+    private static final int SIZE_MAX = 10;
     @Autowired
     private FileRepository fileRepository;
     @Autowired
